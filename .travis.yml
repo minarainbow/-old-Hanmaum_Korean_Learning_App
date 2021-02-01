@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "6"
+install:
+  - npm install
+script:
+  - npm test
+  - npm run bundleIos
+  - npm run zipIos
+  - npm run bundleAndroid
+  - npm run zipAndroid
+  - npm run upload
+deploy:
+  provider: releases
+  file:
+    - bundle.ios.zip
+    - bundle.android.zip
+  skip_cleanup: true
+  on:
+    tags: true
+  api-key:
+    secure: qsSj5scmJ1E0SvEJFX57fTOCSIEPbTL/r/XlqCpm4ZE0aYFyw7cWD6cdp8w0tNpOVcHX1xASZGxm9Z2ktlASfXtRIn4EuxqmD8ZeEMN0LNW8VGL1Z8Q0hTE38Rk9NAQkqme1aR4+UufhgD3TCh4JlAZHcs/t8hgLIXSaTYyYtdHBlYxBBtnsT5it4vXZ0jYBpkBblWNKs+JX4F0SBRErhHfNiYhqCrG5VqkKhEAQqbUat7/zVVG6IzQMLZjA3HokxReCyJNcgoZfS5vW1BhkoYqD+g80RoLpWlIy/4OGtZtA3Af44nxQSVakp8x8GcquHTEnau7lT0CjKqqWdeIp+gMj6k2k3H+0BM/8WwMmZdyv1O4CSgKWpf2pS5kW0usdASm82zpLOOia4PGu3podtUcI8annEx++ZljBumArhhv+Ab8IAVbxle9/YRXzJ3MD3LzZ2U3/a+KD9lq5VX39hCoNludW1tR99guVzZytvSzEIO/bZ0gHOntwVTLdQy2xmDs5kcvmbYkMt/my1O1LM0JIcp/3BIZTQi3d4pPn8nRCRBEgr9JsghG8QTvFUfEqSFFEO0sBp3hTDW+IXj9qsXv25FtkosrO43pZ2JWjkM5YWWGFUvvlIfF4xxbIpmjxbqgdI7+ioihVvvP8HDFnPBvsr6X2q2PxCajrt0bOeqI=
