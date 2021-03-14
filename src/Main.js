@@ -8,7 +8,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <View style={styles.header}></View>
-        <View style={styles.title}><Text style={styles.titleText}>한이음</Text></View>
+        <View style={styles.title}><Text style={styles.titleText}>한마음</Text></View>
         <View style={styles.content}></View>
         <View style={styles.footer}>
         <CustomButton
